@@ -1,0 +1,131 @@
+@import "../../_globalColor";
+@import "../../styles/_animations";
+
+.achievement-main-div {
+  width: 90%;
+  max-width: 1400px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  position: relative;
+  
+  // Animated background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(85, 25, 139, 0.1) 0%, transparent 70%);
+    animation: gradientShift 15s ease infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.achievement-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+}
+
+.achievement-heading {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+  background: linear-gradient(135deg, $textColor 0%, $buttonColor 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out;
+  
+  .dark-mode & {
+    background: linear-gradient(135deg, $textColorDark 0%, $buttonHover 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.achievement-subtitle {
+  font-size: 20px;
+  color: $subTitle;
+  margin-top: 15px;
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+  
+  .dark-mode & {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.subTitle {
+  color: $subTitle;
+}
+
+.achievement-cards-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .achievement-heading {
+    font-size: 40px;
+  }
+  
+  .achievement-subtitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .achievement-main-div {
+    padding: 20px 10px;
+    margin-bottom: 3rem;
+  }
+  
+  .achievement-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .achievement-subtitle {
+    font-size: 16px;
+    line-height: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .achievement-heading {
+    font-size: 26px;
+  }
+  
+  .achievement-subtitle {
+    font-size: 14px;
+  }
+}

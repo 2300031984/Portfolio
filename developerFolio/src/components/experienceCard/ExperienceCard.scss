@@ -1,0 +1,326 @@
+@import "../../_globalColor";
+@import "../../styles/_animations";
+
+.experience-card,
+.experience-card-dark {
+  position: relative;
+  background-color: $lightBackground2;
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
+  border-radius: 15px;
+  border: 1px solid $lightBorder1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, $buttonColor, $buttonHover);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 2;
+  }
+  
+  &:hover {
+    box-shadow: $lightBoxShadowDark 0px 25px 50px -12px;
+    transform: translateY(-10px) scale(1.02);
+    border-color: $buttonColor;
+    
+    &::before {
+      transform: scaleX(1);
+    }
+    
+    .experience-roundedimg {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(85, 25, 139, 0.4);
+    }
+  }
+}
+
+.experience-card-dark {
+  background-color: $darkBackground;
+  border-color: rgba(255, 255, 255, 0.1);
+  
+  &:hover {
+    border-color: $buttonHover;
+  }
+}
+
+.experience-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  }
+}
+
+.experience-blurred_div {
+  position: absolute;
+  background: $experienceCardBlurredDivLG;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  height: 12rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.experience-div-company {
+  position: absolute;
+  height: 12rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.experience-text-company {
+  text-align: center;
+  padding: 1.5rem;
+  margin: 0;
+  color: $lightBackground1;
+  font-size: 25px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+}
+
+.experience-roundedimg {
+  position: absolute;
+  object-fit: cover;
+  left: 0;
+  right: 0;
+  top: 7rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8rem;
+  height: 8rem;
+  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 4px solid $lightBackground2;
+  z-index: 3;
+  
+  .experience-card-dark & {
+    border-color: $darkBackground;
+  }
+}
+
+.experience-text-details {
+  padding: 2rem;
+  margin-top: 4rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-text-role {
+  text-align: center;
+  color: $textColor;
+  font-weight: 700;
+  font-size: 25px;
+  margin: 0;
+  padding-top: 1rem;
+  line-height: normal;
+}
+
+.dark-mode-text {
+  color: $textColorDark !important;
+}
+
+.experience-text-date {
+  text-align: center;
+  color: $textColor;
+  font-size: 18px;
+  margin: 10px 0 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  i {
+    color: $buttonColor;
+  }
+}
+
+.experience-text-desc {
+  text-align: center;
+  color: $subTitle;
+  margin: 20px 0;
+  flex-grow: 1;
+  
+  .dark-mode-text & {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: $textColor;
+  
+  .dark-mode-text & {
+    color: $textColorDark;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.bullet-point {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: $buttonColor;
+  border-radius: 50%;
+  display: inline-block;
+  
+  .dark-mode-text & {
+    background-color: $buttonHover;
+  }
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .experience-text-role {
+    padding-top: 0.5rem;
+    font-size: 22px;
+  }
+  .experience-text-company {
+    font-size: 22px;
+  }
+  .experience-text-date {
+    font-size: 16px;
+  }
+  .experience-roundedimg {
+    width: 7rem;
+    height: 7rem;
+    top: 7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-text-role {
+    font-size: 22px;
+  }
+  .experience-text-company {
+    font-size: 22px;
+  }
+  .experience-text-date {
+    font-size: 16px;
+  }
+  .experience-text-desc {
+    font-size: 16px;
+  }
+  
+  .experience-banner {
+    height: 11rem;
+  }
+  
+  .experience-blurred_div {
+    height: 11rem;
+  }
+  
+  .experience-div-company {
+    height: 11rem;
+  }
+  
+  .experience-roundedimg {
+    width: 7rem;
+    height: 7rem;
+    top: 6.5rem;
+  }
+  
+  .experience-text-details {
+    padding: 1.5rem;
+    margin-top: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-text-role {
+    font-size: 20px;
+  }
+  .experience-text-company {
+    font-size: 20px;
+  }
+  .experience-text-date {
+    font-size: 15px;
+  }
+  
+  .experience-banner {
+    height: 10rem;
+  }
+  
+  .experience-blurred_div {
+    height: 10rem;
+  }
+  
+  .experience-div-company {
+    height: 10rem;
+  }
+  
+  .experience-roundedimg {
+    width: 6rem;
+    height: 6rem;
+    top: 6rem;
+  }
+  
+  .experience-text-details {
+    padding: 1.2rem;
+    margin-top: 3rem;
+  }
+  
+  li {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  
+  .bullet-point {
+    top: 6px;
+    width: 6px;
+    height: 6px;
+  }
+}

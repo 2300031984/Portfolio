@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Agustina Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Agustina Regular"),
+    url("./assets/fonts/Agustina.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"),
+    url("./assets/fonts/Montserrat-Regular.ttf") format("woff");
+  font-display: swap;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Enhanced smooth scrolling with momentum */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #55198b, #8c43ce);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8c43ce, #55198b);
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8c43ce, #55198b);
+}
+body {
+  margin: 0;
+  font: 19px / 23px Montserrat, "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Media Query */
+@media (max-width: 1380px) {
+  html,
+  body {
+    font-size: rem;
+    line-height: normal;
+  }
+}

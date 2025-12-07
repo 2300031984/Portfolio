@@ -1,0 +1,315 @@
+@import "../../_globalColor";
+@import "../../styles/_animations";
+
+.projects-main-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  
+  // Animated background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(85, 25, 139, 0.1) 0%, transparent 70%);
+    animation: gradientShift 15s ease infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+}
+
+.skills-heading {
+  font-size: 56px;
+  font-weight: 400;
+  margin: 0;
+  background: linear-gradient(135deg, $textColor 0%, $buttonColor 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out;
+  
+  .dark-mode & {
+    background: linear-gradient(135deg, $textColorDark 0%, $buttonHover 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.project-subtitle {
+  font-size: 20px;
+  color: $subTitle;
+  margin-top: 15px;
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+  
+  .dark-mode & {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+  width: 250px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-title {
+  color: $titleColor;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 15px 0 0 0;
+  transition: color 0.3s ease;
+}
+
+.card-subtitle {
+  color: $cardSubtitle;
+  font-size: 17px;
+  line-height: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: $lightBackground2;
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid $lightBorder1;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, $buttonColor, $buttonHover);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 1;
+  }
+}
+
+.project-card-light {
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.project-card-dark {
+  box-shadow: 0px 10px 30px -15px $darkBoxShadow;
+  background-color: $darkBackground;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.project-detail {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-card-light:hover {
+  box-shadow: $lightBoxShadowDark 0px 25px 50px -12px;
+  transform: translateY(-10px) scale(1.02);
+  border-color: $buttonColor;
+  
+  &::before {
+    transform: scaleX(1);
+  }
+  
+  .card-image {
+    transform: scale(1.1);
+  }
+  
+  .card-title {
+    color: $buttonColor;
+  }
+}
+
+.project-card-dark:hover {
+  box-shadow: 0px 25px 50px -12px $darkBoxShadow;
+  transform: translateY(-10px) scale(1.02);
+  border-color: $buttonHover;
+  
+  &::before {
+    transform: scaleX(1);
+  }
+  
+  .card-image {
+    transform: scale(1.1);
+  }
+  
+  .card-title {
+    color: $buttonHover;
+  }
+}
+
+.project-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  
+  img {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+    filter: brightness(0.95);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .project-card:hover & img {
+    transform: scale(1.1);
+    filter: brightness(1);
+  }
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.project-card-footer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.project-card-footer span.project-tag {
+  background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+  color: white;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 50px;
+  display: inline-flex;
+  font-size: 0.85rem;
+  height: 2.5em;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1.5;
+  padding: 0 1.25em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(85, 25, 139, 0.2);
+  
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(85, 25, 139, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  .dark-mode & {
+    background: linear-gradient(135deg, $buttonHover 0%, $buttonColor 100%);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 1380px) {
+  .skills-heading {
+    font-size: 40px;
+  }
+  
+  .project-subtitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-main-container {
+    padding: 20px 10px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .skills-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .project-subtitle {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-title {
+    font-size: 20px;
+  }
+  
+  .card-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-heading {
+    font-size: 26px;
+  }
+  
+  .project-subtitle {
+    font-size: 14px;
+  }
+  
+  .project-card {
+    padding: 1.2rem;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+}

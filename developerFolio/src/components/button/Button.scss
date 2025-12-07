@@ -1,0 +1,72 @@
+@import "../../_globalColor";
+@import "../../styles/_animations";
+
+.main-button {
+  background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+  border: solid 1px $buttonColor;
+  color: $textColorDark;
+  font-weight: 700;
+  width: max-content;
+  padding: 13px 22px;
+  margin-right: 50px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(85, 25, 139, 0.3);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, $buttonHover 0%, $buttonColor 100%);
+    color: $textColorDark;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(85, 25, 139, 0.5);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(85, 25, 139, 0.3);
+  }
+}
+.project-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.project-button > .main-button {
+  margin-right: 0 !important;
+}
+/* Media Query */
+@media (max-width: 768px) {
+  .main-button {
+    font-size: 0.938rem;
+    padding: 12px 18px;
+    margin-right: 0px;
+  }
+}
+@media (max-width: 320px) {
+  .main-button {
+    font-size: 0.75rem;
+  }
+}

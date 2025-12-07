@@ -1,0 +1,287 @@
+@import "../../_globalColor";
+@import "../../styles/_animations";
+
+.feedback-main-div {
+  width: 100%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 2rem;
+  max-width: 900px;
+}
+
+.feedback-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+}
+
+.feedback-heading {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0px;
+  background: linear-gradient(135deg, $textColor 0%, $buttonColor 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out;
+  
+  .dark-mode & {
+    background: linear-gradient(135deg, $textColorDark 0%, $buttonHover 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.feedback-subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  color: $subTitle;
+  
+  .dark-mode & {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.feedback-note {
+  margin-top: 15px;
+  font-size: 14px;
+  color: $subTitle;
+  font-style: italic;
+  background-color: rgba(85, 25, 139, 0.1);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 4px solid $buttonColor;
+  
+  .dark-mode & {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(140, 67, 206, 0.15);
+    border-left-color: $buttonHover;
+  }
+}
+
+.feedback-form {
+  background-color: $lightBackground2;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
+  border: 1px solid $lightBorder1;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+  }
+  
+  .dark-mode & {
+    background-color: $darkBackground;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.feedback-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feedback-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.feedback-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: $textColor;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  
+  .dark-mode & {
+    color: $textColorDark;
+  }
+  
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: $buttonColor;
+    border-radius: 50%;
+    margin-right: 10px;
+    
+    .dark-mode & {
+      background-color: $buttonHover;
+    }
+  }
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.feedback-form-group input,
+.feedback-form-group textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid $lightBorder1;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: $lightBackground1;
+  color: $textColor;
+  box-sizing: border-box;
+  
+  &:focus {
+    outline: none;
+    border-color: $buttonColor;
+    box-shadow: 0 0 0 3px rgba(85, 25, 139, 0.1);
+    background-color: $lightBackground2;
+  }
+  
+  &::placeholder {
+    color: $subTitle;
+  }
+  
+  &.dark-mode {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: $textColorDark;
+    
+    &:focus {
+      border-color: $buttonHover;
+      box-shadow: 0 0 0 3px rgba(140, 67, 206, 0.1);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+    
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.feedback-form-group textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.feedback-form-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.feedback-submit-btn {
+  background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+  border: solid 1px $buttonColor;
+  color: white;
+  font-weight: 700;
+  width: max-content;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(85, 25, 139, 0.3);
+  font-family: inherit;
+  letter-spacing: 1px;
+  
+  i {
+    margin-right: 10px;
+    font-size: 1.1em;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, $buttonHover 0%, $buttonColor 100%);
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(85, 25, 139, 0.5);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(85, 25, 139, 0.3);
+  }
+}
+
+// Hide any loading text that might appear in the feedback section
+.feedback-main-div .loading-text,
+.feedback-main-div .loading-container,
+#feedback .loading-text,
+#feedback .loading-container {
+  display: none !important;
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .feedback-heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+  .feedback-subtitle {
+    font-size: 16px;
+  }
+  .feedback-main-div {
+    padding: 10px;
+  }
+  .feedback-form {
+    padding: 1.5rem;
+  }
+  .feedback-form-group textarea {
+    min-height: 150px;
+  }
+  .feedback-submit-btn {
+    width: 100%;
+    padding: 15px;
+  }
+}

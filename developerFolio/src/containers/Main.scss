@@ -1,0 +1,35 @@
+@import "../_globalColor";
+@import "../styles/_animations";
+
+.dark-mode {
+  background-color: $darkBackground;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Smooth fade-in for sections on scroll
+.main {
+  animation: fadeInUp 0.8s ease-out;
+  padding: 40px 20px !important;
+  margin-top: 3rem !important;
+}
+
+// Increased spacing between sections
+.greet-main,
+.main {
+  margin-bottom: 4rem;
+}
+
+// More spacious container widths
+.main {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Add parallax-like effect to sections
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

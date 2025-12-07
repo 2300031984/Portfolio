@@ -1,0 +1,211 @@
+@import "../../_globalColor";
+@import "../../styles/_animations";
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+  width: 250px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  border-radius: 10px;
+}
+
+.card-title {
+  color: $titleColor;
+  font-size: 1.375rem;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 15px 0 0 0;
+  transition: color 0.3s ease;
+}
+
+.card-subtitle {
+  color: $cardSubtitle;
+  font-size: 1.063rem;
+  line-height: 1.5rem;
+  margin: 10px 0 0 0;
+}
+
+.certificate-card {
+  background-color: $lightBackground2;
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid $lightBorder1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, $buttonColor, $buttonHover);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(85, 25, 139, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+}
+
+.certificate-detail-div {
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  box-shadow: $lightBoxShadowDark 0px 25px 50px -12px;
+  transform: translateY(-10px) scale(1.02);
+  border-color: $buttonColor;
+  
+  &::before {
+    transform: scaleX(1);
+  }
+  
+  &::after {
+    left: 100%;
+  }
+  
+  .card-image {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 10px 25px rgba(85, 25, 139, 0.3));
+  }
+  
+  .card-title {
+    color: $buttonColor;
+  }
+}
+
+.dark-mode.certificate-card {
+  background-color: $darkBackground;
+  
+  &:hover {
+    box-shadow: $achievementCertificateCardHoverDark 0px 25px 50px -12px;
+    border-color: $buttonHover;
+    
+    .card-title {
+      color: $buttonHover;
+    }
+  }
+}
+
+.certificate-image-div {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.achievement-cards-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.certificate-card-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.certificate-card-footer span.certificate-tag {
+  background: linear-gradient(135deg, $buttonColor 0%, $buttonHover 100%);
+  color: white;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 50px;
+  display: inline-flex;
+  font-size: 0.85rem;
+  height: 2.5em;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: 1.5;
+  padding: 0 1.25em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(85, 25, 139, 0.2);
+  
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(85, 25, 139, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(-1px) scale(1.02);
+  }
+  
+  .dark-mode & {
+    background: linear-gradient(135deg, $buttonHover 0%, $buttonColor 100%);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .certificate-image-div {
+    height: 200px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .card-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificate-card {
+    padding: 1.2rem;
+  }
+  
+  .certificate-image-div {
+    height: 180px;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+  }
+  
+  .card-subtitle {
+    font-size: 0.9375rem;
+  }
+  
+  .certificate-card-footer span.certificate-tag {
+    font-size: 0.75rem;
+    height: 2.2em;
+    padding: 0 1em;
+  }
+}
