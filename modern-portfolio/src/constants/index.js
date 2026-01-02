@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
     greeting: "Hi, I'm Sai Varun",
     title: "Full Stack Developer | Cybersecurity Enthusiast",
     description: "I'm a B.Tech Computer Science student with a strong passion for software development, cloud computing, and cybersecurity. I specialize in building robust full-stack applications and exploring secure networking solutions.",
-    resumeLink: "/resume.pdf",
+    resumeLink: "/Portfolio/resume.pdf",
 };
 
 export const LINKS = [
@@ -59,28 +59,28 @@ export const CERTIFICATIONS = [
         issuer: "Deloitte",
         validity: "2024",
         description: "Completed technology internship program.",
-        docLink: "/Portfolio/docs/Deloitte.pdf"
+        docLink: "/Portfolio/Deloitte.pdf"
     },
     {
         title: "Aviatrix Certified Engineer - Multicloud Network Associate (ACE Associate)",
         issuer: "Aviatrix",
         validity: "2025 - 2028",
         description: "Certified for multicloud networking expertise.",
-        docLink: "/Portfolio/docs/aviatrix.png"
+        docLink: "/Portfolio/aviatrix.png"
     },
     {
         title: "Oracle Certified Foundations Associate - AI Foundations (OCI)",
         issuer: "Oracle",
         validity: "2025 - 2027",
         description: "Certified for AI foundations and Oracle Cloud Infrastructure.",
-        docLink: "/Portfolio/docs/Oracle.png"
+        docLink: "/Portfolio/Oracle.png"
     },
     {
         title: "Linguva Skills Certification",
         issuer: "Linguva",
         validity: "2024",
         description: "Certified for advanced proficiency in communication.",
-        docLink: "/Portfolio/docs/Lingua.pdf"
+        docLink: "/Portfolio/Lingua.pdf"
     }
 ];
 
@@ -96,14 +96,14 @@ export const EXPERIENCES = [
         role: "Network Security Associate Virtual Intern",
         company: "Fortinet (EduSkills, AICTE)",
         description: "Completed comprehensive training on network security fundamentals, firewalls, and intrusion detection systems. Gained hands-on experience with secure networking practices.",
-        docLink: "/Portfolio/docs/Fortinet.pdf"
+        docLink: "/Portfolio/Fortinet.pdf"
     },
     {
         year: "April 2025 – June 2025",
         role: "Java Full Stack Development Intern",
         company: "EduSkills",
         description: "Designed and implemented backend logic using Spring Boot and built responsive user interfaces with React, HTML, CSS, and Bootstrap.",
-        docLink: "/Portfolio/docs/Java Full Stack.pdf"
+        docLink: "/Portfolio/Java Full Stack.pdf"
     }
 ];
 
