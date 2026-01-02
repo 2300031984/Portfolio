@@ -59,28 +59,28 @@ export const CERTIFICATIONS = [
         issuer: "Deloitte",
         validity: "2024",
         description: "Completed technology internship program.",
-        docLink: "docs/Deloitte.pdf"
+        docLink: "/Portfolio/docs/Deloitte.pdf"
     },
     {
         title: "Aviatrix Certified Engineer - Multicloud Network Associate (ACE Associate)",
         issuer: "Aviatrix",
         validity: "2025 - 2028",
         description: "Certified for multicloud networking expertise.",
-        docLink: "docs/aviatrix.png"
+        docLink: "/Portfolio/docs/aviatrix.png"
     },
     {
         title: "Oracle Certified Foundations Associate - AI Foundations (OCI)",
         issuer: "Oracle",
         validity: "2025 - 2027",
         description: "Certified for AI foundations and Oracle Cloud Infrastructure.",
-        docLink: "docs/Oracle.png"
+        docLink: "/Portfolio/docs/Oracle.png"
     },
     {
         title: "Linguva Skills Certification",
         issuer: "Linguva",
         validity: "2024",
         description: "Certified for advanced proficiency in communication.",
-        docLink: "docs/Lingua.pdf"
+        docLink: "/Portfolio/docs/Lingua.pdf"
     }
 ];
 
@@ -96,14 +96,14 @@ export const EXPERIENCES = [
         role: "Network Security Associate Virtual Intern",
         company: "Fortinet (EduSkills, AICTE)",
         description: "Completed comprehensive training on network security fundamentals, firewalls, and intrusion detection systems. Gained hands-on experience with secure networking practices.",
-        docLink: "docs/Fortinet.pdf"
+        docLink: "/Portfolio/docs/Fortinet.pdf"
     },
     {
         year: "April 2025 – June 2025",
         role: "Java Full Stack Development Intern",
         company: "EduSkills",
         description: "Designed and implemented backend logic using Spring Boot and built responsive user interfaces with React, HTML, CSS, and Bootstrap.",
-        docLink: "docs/Java Full Stack.pdf"
+        docLink: "/Portfolio/docs/Java Full Stack.pdf"
     }
 ];
 
