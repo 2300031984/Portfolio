@@ -21,11 +21,11 @@ const childVariants = {
 
 const Hero = () => {
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden relative bg-gradient-to-b from-slate-950 via-slate-900 to-blue-950">
+        <section id="home" aria-labelledby="hero-title" className="min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden relative bg-gradient-to-b from-slate-950 via-slate-900 to-blue-950">
             {/* Background Decor */}
-            <div className="absolute top-0 -left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-            <div className="absolute top-0 -right-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-32 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+            <div aria-hidden="true" className="absolute top-0 -left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div aria-hidden="true" className="absolute top-0 -right-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div aria-hidden="true" className="absolute -bottom-32 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
             <div className="container mx-auto grid md:grid-cols-1 items-center gap-12 text-center max-w-4xl z-10 mb-20">
                 <motion.div
@@ -42,6 +42,7 @@ const Hero = () => {
                     </motion.span>
 
                     <motion.h1
+                        id="hero-title"
                         variants={childVariants}
                         className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6"
                     >
@@ -58,34 +59,35 @@ const Hero = () => {
                         {HERO_CONTENT.description}
                     </motion.p>
 
-                    <motion.div variants={childVariants} className="flex gap-4 mb-12">
+                    <motion.div variants={childVariants} className="flex flex-wrap justify-center gap-4 mb-12">
                         <a
                             href="#contact"
-                            className="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-blue-600 transition-colors shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-0.5"
+                            className="px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-blue-600 transition-colors shadow-lg hover:shadow-blue-500/50 transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                         >
                             Get in Touch
                         </a>
                         <a
                             href={HERO_CONTENT.resumeLink}
                             download
-                            className="px-8 py-3 rounded-full glass text-white font-medium hover:bg-white/10 transition-all shadow-sm hover:shadow"
+                            className="px-8 py-3 rounded-full glass text-white font-medium hover:bg-white/10 transition-all shadow-sm hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                         >
                             Download Resume
                         </a>
                     </motion.div>
 
-                    <motion.div variants={childVariants} className="flex gap-6">
-                        {SOCIAL_LINKS.map((social, index) => (
+                    <motion.div variants={childVariants} className="flex gap-6" aria-label="Social links">
+                        {SOCIAL_LINKS.map((social) => (
                             <motion.a
                                 key={social.label}
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={social.label}
                                 whileHover={{ scale: 1.2, rotate: 5 }}
                                 whileTap={{ scale: 0.9 }}
-                                className="text-slate-400 hover:text-blue-600 transition-colors"
+                                className="text-slate-400 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-sm"
                             >
-                                <social.icon size={26} />
+                                <social.icon size={26} aria-hidden="true" />
                             </motion.a>
                         ))}
                     </motion.div>
